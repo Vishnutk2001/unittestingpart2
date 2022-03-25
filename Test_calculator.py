@@ -3,29 +3,38 @@ import Calculator
 import unittest
 
 class calculator_test(unittest.TestCase):
+
+    def setUp(self):
+        self.a = 20
+        self.b = 10
+
+    def tearDown(self):
+        self.a = 0
+        self.b = 0
+
+
+
+
+    @unittest.skip("skipped this test")
     def test_add(self):
-        a = 20
-        b = 10
-        c = Calculator.add(a,b)
-        self.assertEqual(c,a+b)
+
+        c = Calculator.add(self.a,self.b)
+        self.assertEqual(c,self.a+self.b)
 
     def test_sub(self):
-        a = 20
-        b = 10
-        c = Calculator.sub(a,b)
-        self.assertEqual(c,a-b)
+
+        c = Calculator.sub(self.a,self.b)
+        self.assertEqual(c,self.a-self.b)
 
     def test_mul(self):
-        a = 10
-        b = 20
-        c = Calculator.mul(a,b)
-        self.assertEqual(c,a*b)
+
+        c = Calculator.mul(self.a,self.b)
+        self.assertEqual(c,self.a*self.b)
 
     def test_div(self):
-        a = 20
-        b = 10
-        c = Calculator.div(a,b)
-        self.assertEqual(c,a/b)
+
+        c = Calculator.div(self.a,self.b)
+        self.assertEqual(c,self.a/self.b)
 
 
 if __name__ == "__main__":
